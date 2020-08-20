@@ -1,0 +1,6 @@
+.idea/
+.score
+.statedb
+exc
+tbears.log
+webapp/__pycache__/

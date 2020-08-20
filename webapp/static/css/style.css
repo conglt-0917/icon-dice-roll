@@ -1,0 +1,144 @@
+:root{
+    --primaryColor:#41a5e0;
+    --white:#fff;
+    --gray:#c5c5c5;
+}
+@import url('https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i');
+body{
+    font-family: 'Montserrat', sans-serif;
+    background:#f4f4f4;
+}
+.no-padding {padding:0!important;}
+.header {
+    background-color:#ffffff;
+    padding:20px 0;
+    font-size:90%;
+}
+.header__logo span { font-size:24px; color:#41a6df; position: relative;top:7px;}
+.mainWrapper{padding:40px 20px 20px 20px; }
+.mainWrapper h1{ font-weight:normal; font-size: 36px;}
+.blockUser { display:flex;}
+.blockUser__user {
+    text-align: center;
+    height:70px;
+    width:90px;
+    padding-top:10px;
+    background-color:var(--white);
+    display:block;
+    border-radius:5px;
+    border:1px solid var( --gray);
+}
+.blockUser__user:hover{
+    background-color:var(--primaryColor);
+    color:var(--white); 
+}
+.bodyWrap {
+    margin:10px 0;
+}
+.getVotes, .getQuestion {
+    text-align: center;
+    background-color:var(--white);
+    display:block;
+    border-radius:5px;
+    border:1px solid var( --gray);
+    margin-bottom:10px;
+}
+.getVotes h1, .getQuestion h1 {
+    font-size:24px;
+    font-weight:500;
+    padding:20px 0 10px 0;
+}
+.getQuestion p {
+    font-size:18px;
+}
+.getVotes__decision { padding:0 0 15px 0;}
+.getVotes__decision span{ font-size:20px;}
+.getVotes__btn {
+    display:inline-block;
+    background-color:var(--primaryColor);
+    color:var(--white); 
+    border-radius:30px;
+    padding:10px 29px   ;
+    margin-bottom:20px;
+    font-size:20px;
+    cursor: pointer;
+}
+.chart {
+    text-align: center;
+    background-color:var(--white);
+    display:block;
+    border-radius:5px;
+    border:1px solid #ccc;
+    margin-left:10px; 
+    padding:10px;
+}
+.yesno ul li {
+    list-style: none;
+  display: inline-block;
+  padding:0 10px 0 0; 
+}
+
+/***********************************Flip*****************************************/
+.flipWrap {margin-top:40px; }
+.flipWrap__body{ padding:30px 20px 0 0; border:1px solid #ccc;  background-color:var(--white); border-radius:5px;  }
+.flipWrap__header p {display:inline-block; padding-right:20px; font-size:20px;}
+.mainTblWrap { overflow:auto; height:300px; margin-bottom:20px;}
+.flipWrap__header p span.value{ font-weight:bold;}
+.flipWrap__header p span.transaction{ font-size:14px;}
+
+  
+  .coin-flip{
+    width: 100px;
+    height: 100px;
+    top:0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transform-style: preserve-3d;
+    position: absolute;
+    animation: fly 1.5s ease-in-out 0s infinite alternate;
+  }
+  .coin-flip img{
+    width: 100px;
+  }
+  
+  .coin-heads, .coin-tails {
+    backface-visibility: hidden;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .coin-heads{
+    animation: flip-head 1s linear 0s infinite alternate;
+  }
+  .coin-tails{
+    animation: flip-tail 1s linear 0s infinite alternate;
+  }
+  .TblCoin { border:1px solid #ccc}
+  .TblCoin thead th{
+      background-color:#deebf3;
+  }
+  .TblCoin tr td, .TblCoin tr th {
+      text-align: center;
+      font-size: 14px;
+  }
+  
+  @keyframes fly {
+    0% { top: 30%; }
+    100% { top: 0%; }
+  }
+  
+  @keyframes flip-head {
+    0%, 100% { transform: rotateX(0deg); }
+    50% { transform: rotateX(180deg); }
+  }
+  
+  @keyframes flip-tail {
+    0%, 100% { transform: rotateX(180deg); }
+    50% { transform: rotateX(0deg); }
+  }
+
+ 
+/*****************************mobile****************/
+

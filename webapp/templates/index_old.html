@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>Icon Dice Roll App</title>
+</head>
+<body>
+
+<div class="header">
+    <div class="container">
+        <div class="header__logo">
+            <img src="img/logo.png"><span>ICON Foundation </span>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="mainWrapper">
+        <h1>Dice Rolling App</h1>
+
+        <div class="row no-gutters bodyWrap">
+
+            <div class="col-md-6">
+            </div>
+
+            <div class="col-md-6">
+                <div class="getVotes">
+                    {% for transaction in context %}
+                    <table border="1" width="100%">
+                        <tr>
+                            <td>From:</td>
+                            <td>{{transaction['from']  or transaction['fromAddr'] }}</td>
+                        </tr>
+                        <tr>
+                            <td>To:</td>
+                            <td>{{transaction['to'] or transaction['toAddr']}}</td>
+                        </tr>
+                        <tr>
+                            <td>TxHash:</td>
+                            <td>{{transaction['txHash']}}</td>
+                        </tr>
+                        <tr>
+                            <td>Bet Amount:</td>
+                            <td>{{transaction['amount']}}</td>
+                        </tr>
+                        <tr>
+                            <td>Timestamp:</td>
+                            <td>{{transaction['timestamp']}}</td>
+                        </tr>
+                    </table>
+                    <hr/>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+</body>
+</html>

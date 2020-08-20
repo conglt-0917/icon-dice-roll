@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css"
+          integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='lpoll.js') }}"></script>
+    <title>Poll</title>
+
+</head>
+<body>
+
+<div class="header">
+    <div class="container ">
+        <div class="header__logo">
+            <img src="{{ url_for('static', filename='img/logo.png') }}"><span>ICON Foundation </span>
+        </div>
+    </div>
+</div>
+<div class="container no-padding">
+
+    <div class="flipWrap">
+        <div class="flipWrap__header">
+            <p>Balance: <span class="value" id="score_balance">{{context.score_balance}}</span></p>
+            <p>Last Bet: <span class="transaction" id="latest_transaction">TxHash(<span class="value">{{context.latest_transaction.txHash}}</span>), AmountSpent(<span
+                    class="value">{{context.latest_transaction.amount}}</span>), Result (<span class="value">
+                {% if context.latest_transaction.result==1 %}
+                    Win
+                {% else %}
+                    Lose
+                {% endif %}
+            </span>)</span>
+            </p>
+            <div id="updated">UPDATED</div>
+            <div id="contents"></div>
+
+        </div>
+        <div class="container">
+            <div class="row flipWrap__body">
+                <div class="col-md-3">
+                    <div class="coin-flip" id="coin-flip-id">
+                        <div class="coin-tails">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/da/US_One_Cent_Rev.png/240px-US_One_Cent_Rev.png">
+                        </div>
+                        <div class="coin-heads">
+                            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/US_One_Cent_Obv.png/240px-US_One_Cent_Obv.png">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-9 mainTblWrap" id="transaction_list">
+                    <table class="table table-striped TblCoin">
+                        <thead>
+                        <tr>
+                            <th>Toss Coin</th>
+                            <th>Result</th>
+
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        {% for transaction in context['transaction_list']%}
+                        <tr>
+                            <td>{{transaction['txHash']}}</td>
+                            <td>
+                                {% if transaction['result']==1 %}
+                                Win
+                                {% else %}
+                                Lose
+                                {% endif %}
+                            </td>
+
+                        </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+
+<script>
+    <!--jQuery(document).ready(function($){-->
+<!--console.log('TWE');-->
+  <!--$('#coin-flip-id').on('click', function(){-->
+    <!--var flipResult = Math.random();-->
+    <!--console.log(flipResult);-->
+    <!--$('#coin-flip-id').removeClass();-->
+    <!--setTimeout(function(){-->
+      <!--if(flipResult <= 0.5){-->
+        <!--$('#coin-flip-id').addClass('coin-heads');-->
+        <!--console.log('it is head');-->
+      <!--}-->
+      <!--else{-->
+        <!--$('#coin-flip-id').addClass('coin-tails');-->
+        <!--console.log('it is tails');-->
+      <!--}-->
+    <!--}, 100);-->
+  <!--});-->
+<!--});-->
+
+
+</script>
+</html>
